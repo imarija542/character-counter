@@ -6,13 +6,11 @@ function App() {
   const [limit, setLimit] = useState(250);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Kalkulacije
   const charCount = text.length;
   const wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
   const sentenceCount =
     text.trim() === "" ? 0 : text.split(/[.!?]+/).filter(Boolean).length;
 
-  // Letter Density (izračun učestalosti slova)
   const getLetterDensity = () => {
     const letters = text.toLowerCase().replace(/[^a-z]/g, "");
     const stats = {};
@@ -21,7 +19,7 @@ function App() {
     }
     return Object.entries(stats)
       .sort((a, b) => b[1] - a[1])
-      .slice(0, 5); // Prikazujemo top 5 najčešćih slova
+      .slice(0, 5);
   };
 
   return (
